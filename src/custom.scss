@@ -1,0 +1,165 @@
+// Override default variables before the import
+$body-bg: #fff;
+$body-color: #bbb;
+$bg-dark: #343a40;
+$bg-main: #FFEFBA;
+$color-warning: #ffc107;
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: linear-gradient(90deg, $bg-main, #fff);
+
+  .container-fluid {
+    padding: 0 0 60px;
+    min-height: 100vh;
+    height: 100%;
+  }
+}
+
+// custom button styling
+.btn {
+  &:hover {
+    background-color: $bg-main;
+    border-color: $bg-main;
+    color: $bg-dark;
+    box-shadow: 1px 1px 4px #2f2f2f;
+  }
+
+  &.warning {
+    &:hover {
+      background-color: $color-warning;
+      border-color: $bg-dark;
+    }
+  }
+}
+
+// main title
+.main {
+  position: relative;
+
+  &__title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 0;
+    color: $bg-dark;
+  }
+
+  &__alert {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    left: 0;
+    bottom: -10px;
+    text-align: center;
+    min-height: 50px;
+  }
+
+}
+
+// side form
+.side {
+  &__menu {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 0;
+
+    z-index: 10;
+    background-color: $bg-dark;
+    border-Left: 1px solid #bbb;
+    transition: 1s all;
+
+    padding: 0;
+
+    &.open {
+      width: 300px;
+    }
+  }
+
+  &__alert {
+    position: absolute;
+    top: 55px;
+    left: 10px;
+    right: 10px;
+  }
+}
+
+// hamburger icon
+.icon {
+  &__form {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 1s;
+    
+    &:hover {
+      transform: rotate(180deg);
+      color: #555;
+    }
+  }
+
+  &__logo {
+    font-size: 25px;
+  }
+}
+
+// footer
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 8px;
+  height: 52px;
+  line-height: 40px;
+  text-align: center;
+  background-color: $bg-dark;
+  border-top: 2px solid #fff;
+
+  display: flex;
+  justify-content: center;
+
+  &__text:last-child {
+    margin-left: 30px;
+
+    @media (max-width: 670px) {
+      display: none
+    }
+  }
+
+  &__text--highlited {
+    color: $bg_main;
+    font-style: italic;
+    margin: 0 8px;
+
+    &:hover {
+      color: $bg-main;
+      text-shadow: 0 0 3px $bg-main;
+      text-decoration: none;
+    }
+  }
+}
+
+// utility class
+.fading {
+  animation: 3s fade-out forwards
+}
+
+@keyframes fade-out {
+  0% {opacity: 1}
+  50% {opacity: 1} 
+  100% {opacity: 0} 
+}
